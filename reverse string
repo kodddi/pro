@@ -1,0 +1,6 @@
+let str=prompt(“enter your string”);
+let newstr = str.split(' ')
+                 .map(word=>word.split('').reverse().join(''))
+                 console.log(newstr);
+               let x=  reversedStr.join(' ');
+console.log(x);   
