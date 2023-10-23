@@ -1,0 +1,4 @@
+let num= [30,35,46,63,33];
+console.log("sorted in reverse way");
+let x= num.sort(function(a,b){return b-a});
+console.log(x);
