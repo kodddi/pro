@@ -1,0 +1,38 @@
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Scanner;
+class check{
+ 
+    public static String removeDuplicates(String str) {
+        String new_string = str.replace(" ", "");
+
+        String newStr = "";
+        for (int i = 0; i < new_string.length(); i++) {
+            if (!newStr.contains(Character.toString(new_string.charAt(i)))) {
+                newStr += Character.toString(new_string.charAt(i));
+            }
+        }
+        return newStr;
+    }
+
+}
+class Main {
+  public static void main(String[] args) {
+    // Considering inputs given are valid
+   System.out.println("write the string");
+    Scanner scanner = new Scanner(System.in);
+
+    String str = scanner.nextLine();
+
+String newStr = check.removeDuplicates(str);
+int n = newStr.length();
+if(n==26){
+    System.out.println("string is a pangram");
+}
+else{
+    System.out.println("next time");
+}
+  
+    
+}}
+    
