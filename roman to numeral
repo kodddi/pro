@@ -1,0 +1,37 @@
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Scanner;
+class GFG {
+  private static final Map<Character, Integer> roman = new HashMap<>();
+  static {
+    roman.put('I', 1);
+    roman.put('V', 5);
+    roman.put('X', 10);
+    roman.put('L', 50);
+    roman.put('C', 100);
+    roman.put('D', 500);
+    roman.put('M', 1000);
+  }
+
+  public static int romanToInt(String s) {
+    int sum = 0;
+    int n = s.length();
+    for (int i = 0; i < n; i++) {
+      if (i != n - 1 && roman.get(s.charAt(i)) < roman.get(s.charAt(i + 1))) {
+        sum += roman.get(s.charAt(i + 1)) - roman.get(s.charAt(i));
+        i++;
+      } else {
+        sum += roman.get(s.charAt(i));
+      }
+    }
+    return sum;
+  }
+}
+class Main {
+  public static void main(String[] args) {
+   System.out.println("write the roman one");
+    Scanner scanner = new Scanner(System.in);
+    String input = scanner.nextLine();
+    System.out.print("Integer form of Roman Numeral is " + GFG.romanToInt(input));
+  }
+}
