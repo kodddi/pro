@@ -1,0 +1,98 @@
+//i made this calculatro in angular. its html code-
+<div class="calculator">
+  <div class="cal_output" *ngIf="!evaluate">0</div>
+  <div class="cal_output" *ngIf="evaluate">{{strTOevaluate}}</div>
+  <div class="cal_keys">
+    <button class="cal_key --operator" (click)="input('+')">+</button>
+    <button class="cal_key --operator" (click)="input('-')">-</button>
+    <button class="cal_key --operator"(click)="input('*')">*</button>
+    <button class="cal_key --operator"(click)="input('/')">÷</button>
+    <button class="cal_key" (click)="input('7')">7</button>
+    <button class="cal_key" (click)="input('8')">8</button>
+    <button class="cal_key" (click)="input('9')">9</button>
+    <button class="cal_key"(click)="input('4')" >4</button>
+    <button class="cal_key"(click)="input('5')">5</button>
+    <button class="cal_key" (click)="input('6')">6</button>
+    <button class="cal_key" (click)="input('1')">1</button>
+    <button class="cal_key" (click)="input('2')">2</button>
+    <button class="cal_key" (click)="input('2')">3</button>
+    <button class="cal_key" (click)="input('0')">0</button>
+    <button class="cal_key" (click)="input('.')">.</button>
+    <button class="cal_key" (click)="del()">AC</button>
+    <button class="cal_key cal_key--enter" (click)="result()">=</button>
+  </div>
+</div>
+//its app.componenet.ts code-
+  evaluate:string='';
+
+input(num:string){
+this.evaluate=this.evaluate + num;
+
+}
+result(){
+  this.evaluate=eval(this.evaluate);
+
+}
+del(){
+  this.evaluate='';
+}
+
+ //its css file-
+.calculator {
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  margin-block-start: 2em;
+  max-inline-size: 22rem;
+  overflow: hidden;
+  color: hsl(202, 11%, 29%);
+}
+.cal_output {
+  background: white;
+  font-size: 4.2rem;
+  padding-block-start: 3rem;
+  padding-block-end: 0.5rem;
+  padding-inline-end: 1.25rem;
+  text-align: end;
+}
+.cal_keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px;
+  background: hsl(255, 100%, 100%);
+  padding: 0.5rem;
+}
+.cal_key {
+  background: grey;
+  border: none;
+  padding-block-start: 1rem;
+  padding-block-end: 1rem;
+  padding-inline-end: 1.25rem;
+  padding-inline-start: 1.25rem;
+  font-size: 1.5rem;
+  /* Playful Styles */
+  inline-size: 70px;
+  block-size: 70px;
+  margin: 0.25rem;
+  border-radius: 40px;
+}
+.cal_key:active,
+.cal_key:focus {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) inset;
+  outline: none;
+}
+.cal_key--operator {
+  background: grey;
+}
+.cal_key--operator:active {
+  background: hsl(208, 24%, 80%);
+}
+.cal_key--enter {
+  grid-column: 4 / 5;
+  grid-row: 2 / span 4;
+  background: teal;
+  height: auto;
+}
+
+  
