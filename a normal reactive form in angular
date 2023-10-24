@@ -1,0 +1,88 @@
+html file-
+div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form  [formGroup]="signupForm" (ngSubmit)="onsubmit()">
+        <div class="userdata" formGroupName='userdata'>
+        <div class="form-group">
+          
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            formControlName='username'
+            class="form-control">
+            <span class="help" *ngIf="!signupForm.get('userdata.username').valid && signupForm.get('userdata.username').errors['required']">please enter a  name</span>
+        
+        <div class="form-group">
+          <label for="email">email</label>
+          <input
+            type="text"
+            id="email"
+            formControlName='email'
+           class="form-control">
+           <span *ngIf="!signupForm.get('userdata.email').valid && signupForm.get('userdata.email').touched">please</span>
+        </div>
+      </div>
+      </div>
+        <div class="radio" *ngFor="let gender of gender">
+          <label>
+            <input
+              type="radio"
+              id="gender"
+              [formControlName]="'gender'"
+              [value]="gender">{{ gender }}
+          </label>
+        </div>
+        <div  formArrayName="hobbies">
+          <p>Your hobbies</p>
+          <button class="btn btn-add "type="button" (click)="onADDhobby()">Add hobby</button>
+        <div class="form-control"
+        *ngFor="let hobbyControl of controls; let i = index">
+          <input type="text" name="form-control" [formControlName]="i">
+        </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!signupForm.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+//app.component.ts
+ gender=['male', 'female'];
+  
+  signupForm:FormGroup;//name of the form
+  ngOnInit(){
+    this.signupForm= new FormGroup({
+        'userdata':new FormGroup({
+          'username':new FormControl('hero', Validators.required ),
+        'email' : new FormControl('test@gmail.com' , [Validators.required,Validators.email]),
+      }),
+        'gender' : new FormControl('male'),
+        'hobbies': new FormArray([])
+
+
+      });
+    this.signupForm.statusChanges.subscribe(
+        (value)=>console.log(value)
+      );
+    this.signupForm.patchValue({
+      'gender':'female'
+    });
+  }
+onsubmit(){
+  console.log(this.signupForm);
+  this.signupForm.reset({
+    'gender':'male'
+  })
+}
+onADDhobby(){
+  let controls=new FormControl(null, Validators.required);
+   (<FormArray>this.signupForm.get('hobbies')).push(controls);
+
+}
+
+get controls() {
+  return (this.signupForm.get('hobbies') as FormArray).controls;
+}
+}
