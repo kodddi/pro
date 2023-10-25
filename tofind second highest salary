@@ -1,0 +1,5 @@
+//question that made me cry............... find second highest salary from data
+select * from employee where salary=(select Max(salary) from employee);
+// it can also be done by rearranging salary in descending order and then fetch top 2
+select TOP 2  * from employee ordered by salary;
+//question is simple untilgod knows.........
