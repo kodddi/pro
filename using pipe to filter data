@@ -1,0 +1,31 @@
+//learnt how to create a pipe in angular
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'sort'
+})
+export class SortPipe implements PipeTransform {
+
+  transform(value: any, propname:string):any {
+    return value.sort({ a,b}=>
+      { if ( a[propname] > b[propname]){
+      return 1;} else
+      return -1;}
+      );
+  }
+
+}
+//it sort nameof string in ascending order 
+<li
+          class="list-group-item"
+          *ngFor="let server of servers"
+          [ngClass]="getStatusClasses(server)">
+          <span
+            class="badge">
+            {{ server.status }}
+          </span>
+          <strong>{{ server.name| sort }}</strong> |
+          {{ server.instanceType | uppercase }} |
+          {{ server.started | date:'fullDate' | uppercase }}
+        </li>
+other than this uppercase date are also pipes fulldate is a parameterixed pipe. other than this can use pure to reapply the pipe to modified data but it will cost us performance remeber it.
