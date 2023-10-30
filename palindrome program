@@ -1,0 +1,27 @@
+import java.util.Scanner;
+//java program to check if a string is palindrome or not-
+boolean check(String str) {
+	boolean result = true;
+	int length = str.length();
+
+	for (int i = 0; i < str/2; i++) {
+		if (str.charAt(i) != str.charAt(length - i - 1)) {
+			result = false;
+			break;
+		}
+	}
+
+	return result;
+}
+class Palindrome{  
+ public static void main(String args[]){ 
+System.out.println("enter your string");
+Scanner myObj = new Scanner(System.in); 
+   String pallindrome = myObj.nextLine();  
+boolean result=check(palindrome);
+    if(result==false){
+System.out.println("Not a palindrome");}
+else{
+System.out.println("The string is a palindrome");
+}
+} 
