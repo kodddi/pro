@@ -1,0 +1,38 @@
+//today we will be learning how to preserve anuser credential whwn a site or browser reload so that he does not log out-
+we store user data that we get from data base in local storage of browser-
+private handleAuth(email:string,userid:string,token:string,expiresIn:number){
+const expiresin=new Date(new Date().getTime()+ expiresIn * 1000);
+            const user = new User(email, userid, 
+              token,expiresin);
+            localStorage.setItem('userData',JSON.stringify(user));// over here.
+//then we create a method that will run when the site reload . it will have that stored data 
+AutoLogin(){
+  const refreshUser:{  //type of data it will have
+    email :string;
+   id :string;
+  _token:string;
+  _tokendate:string; 
+  }=JSON.parse(localStorage.getItem('userData'));// convert from string to javascript object
+  if(!refreshUser){return;}
+  else{
+    const LoadedUser=new User(refreshUser.email,refreshUser.id,refreshUser._token,new Date(refreshUser._tokendate));//store it in a value
+  if(LoadedUser.token){  //if token is there and if it is valid
+    this.user.next(LoadedUser);//emit the data un user subject
+  }
+  }
+}
+//we have code to check whether the token is valid or not
+get token(){
+	if(!this._tokendate || new Date()>this._tokendate){
+		return null;
+
+	} else {
+		return this._token;
+	}
+//now we will call this method in some early loaded component  in app.component
+ngOnInit(){
+  this.authser.AutoLogin();
+}
+
+and done
+
