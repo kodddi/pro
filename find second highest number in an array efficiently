@@ -1,0 +1,32 @@
+//PROGRAM TO FIND SECOND HIGHEST IN AN ARRAY USING JAVA AND MIN VALUE PROPERTY
+public static int secondHighest (int[] arr){
+int highest=INTEGER_MIN.VALUE;
+int second=INTEGER_MIN.VALUE;
+for(i=0;i<arr;i++){
+if(i>highest){
+highest=i;
+second=highest;
+}
+else if(i>second){
+second=i;
+}
+}
+return second;
+}
+Public static void main(String args[]){
+System.out.println("enter your array element");
+int[] array = new int[10];  
+Scanner sc=new Scanner(System.in);  
+System.out.println("Enter the 10 elements of the array: ");  
+for(int i=0; i<n; i++)  
+{  
+array[i]=sc.nextInt();  
+}  
+System.out.println("Array elements are: ");
+for (int i=0; i<n; i++)   
+{  
+System.out.println(array[i]);  
+} 
+System.out.println("second highest number is:-);
+result=secondHighest(array);
+}
