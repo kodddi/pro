@@ -1,0 +1,40 @@
+class Anagram{  
+    public static void main(String args[]){  
+   
+boolean answer = false;
+Scanner myObj = new Scanner(System.in);  
+    System.out.println("Enter first string");
+String string1 = myObj.nextLine();  
+ System.out.println("Enter second string");
+String string2 = myObj.nextLine();  
+   
+if (string1.length() != stirng2.length()) {
+
+    System.out.println(string1 + " and " + string2 + " not anagrams string");
+
+} else {
+
+    char[] anagram1 = sting1.toCharArray();
+
+    char[] anagram2 = string2.toCharArray();
+
+    Arrays.sort(anagram1);
+
+    Arrays.sort(anagram2);
+
+    answer = Arrays.equals(anagram1, anagram2);
+
+}
+
+if (answer == true) {
+
+    System.out.println(" anagrams string");
+
+} else {
+
+    System.out.println(" try next time");
+
+}
+
+}
+}
