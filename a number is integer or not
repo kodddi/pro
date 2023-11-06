@@ -1,0 +1,8 @@
+//how to check whether a numberis a decimalor integer
+int n=prompt("enter the number");
+if(n%1===0){
+console.log("the number is integer");
+}
+else{
+console.log("try next time);
+}
