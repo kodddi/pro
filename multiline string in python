@@ -1,0 +1,8 @@
+//if we want to print a multiline paragraph in python than have to use triple quote
+mail='''
+hello there,
+we want to convey our regard for completion of your course.
+thank you 
+support team '''
+print( mail)
+//this will print ot as it is in multiple lines
