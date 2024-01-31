@@ -1,0 +1,8 @@
+// program for formatted string in python
+// it help in executing the variable and print text
+first_name='kirti'
+last_name='kharbanda'
+//want to print it like- kirti [kharbanda] is a famous actor
+msg= f'{first_name} [{last_name}] is a famous actor'
+//f here stand for formatted string other than this we have to use concatination as-
+message=first_name + '['+ last_name + '] is a famous actor' 
