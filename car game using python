@@ -1,0 +1,18 @@
+print("welcome to the car game . Type help to get the instruction")
+command=""
+while True:    # the loop will run until it meet a break statement
+    command=input("command- ").lower()    #to convert the command into lower case
+    if command== "start":
+        print("car started")
+    elif command== "stop":
+        print("car stopped")
+    elif command=="help":
+        print("""
+        start=to start the car
+        stop= to stop the car
+        quit= to exit the game
+        """)
+    elif command=="quit":
+        break             # will terminate the while loop
+    else:
+        print("did not get it")
