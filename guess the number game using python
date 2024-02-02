@@ -1,0 +1,17 @@
+#a number guessing game using python . the player has three chances to guess the number between 11 to 20
+import random
+winning_number=random.randrange(11,21,1)
+no_this=0
+print(winning_number)
+guess_limit=3
+guess_count=0
+while guess_count<guess_limit:
+  guess=int(input('guess the number: '))
+  if guess==winning_number:
+    print("you guess it right")
+  else:
+    print("nana again")
+    no_this+=1
+  if no_this==3:
+      print("try next time")
+  guess_count +=1
