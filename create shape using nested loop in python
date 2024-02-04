@@ -1,0 +1,20 @@
+# create a f shape of stars in python using nested loop
+*****
+**
+*****
+**
+**
+num=[5,2,5,2,2]
+for x_count in num:
+  output=""
+  for count in range(x_count):
+    output +='*'
+  print (output)
+OR
+num=[5,2,5,2,2]
+for x_count in num:
+  while(x_count!=0):
+      print("*" , end="")
+      x_count -=1
+  print()
+#both code give same output
