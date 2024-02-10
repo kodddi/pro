@@ -1,0 +1,14 @@
+message=input("enter your message here:")
+words=message.split(' ')  /#to split the message according to the spaces
+print(words)
+emoji={
+    ":)" : "happy",
+    ":(": "sad",
+    ":|": "confused",
+    ";(": "cursing",
+    ":}": "wierd"
+}
+output=""    #to get the results
+for word in words:
+    output+= emoji.get(word,word)+ " "     # get method avoid error if the emoji is not in the list
+print(output)
