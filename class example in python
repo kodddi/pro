@@ -1,0 +1,13 @@
+class Person:
+    def __init__(self ,name):   //constructor in python
+        self.name=name
+        
+    def talk(self):
+        print(f"lets have a conversation {self.name}" )
+        
+        
+person1 = Person("jack")
+print(person1.name)
+person1.talk()
+bob=Person("Bob")
+print(f"hi {bob.name}, {bob.talk()}")
