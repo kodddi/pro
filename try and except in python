@@ -1,0 +1,10 @@
+#try and except block example:
+try:
+    age=int(input("your age:"))
+    income=int(input("your income:"))
+    capacity=income/age
+    print(capacity )
+except ValueError:
+    print("it should be number")   // help in preventing from writing alphabets in age
+except ZeroDivisionError:
+    print("age cant be zero")
